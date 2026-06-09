@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GYM", ".", "{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/GYM"
+		Debug.AspNetCompiler.PhysicalPath = "..\GYM\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\GYM\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/GYM"
+		Release.AspNetCompiler.PhysicalPath = "..\GYM\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\GYM\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1043"
+		SlnRelativePath = "..\GYM\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|32 = Debug|32
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		release|32 = release|32
+		release|Any CPU = release|Any CPU
+		release|x86 = release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}.Debug|32.ActiveCfg = Debug|Any CPU
+		{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}.Debug|32.Build.0 = Debug|Any CPU
+		{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}.Debug|x86.Build.0 = Debug|Any CPU
+		{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}.release|32.ActiveCfg = Debug|Any CPU
+		{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}.release|32.Build.0 = Debug|Any CPU
+		{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}.release|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}.release|Any CPU.Build.0 = Debug|Any CPU
+		{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}.release|x86.ActiveCfg = Debug|Any CPU
+		{FD47179A-F6BA-4C21-A5D4-F3D607FB3349}.release|x86.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2A46444-96B6-4E0E-9429-3EBDD1599946}
+	EndGlobalSection
+EndGlobal

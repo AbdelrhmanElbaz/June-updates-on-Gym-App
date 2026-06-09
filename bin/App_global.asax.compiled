@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="8" virtualPath="/GYM/global.asax" hash="ffffffffe7269d80" filehash="c698dc177c8" flags="150000" assembly="App_global.asax" type="ASP.global_asax">
+    <filedeps>
+        <filedep name="/GYM/global.asax" />
+    </filedeps>
+</preserve>

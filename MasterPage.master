@@ -1,0 +1,322 @@
+<%@ master language="C#" autoeventwireup="true" inherits="MasterPage, App_Web_miccv0mn" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="default.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style type="text/css">
+    /* ============================================================
+       GYM GLOBAL DARK THEME — MasterPage
+       ============================================================ */
+
+    :root {
+      --bg:          #0f0f17;
+      --surface:     #181824;
+      --surface-2:   #1e1e2e;
+      --border:      rgba(255,255,255,0.08);
+      --primary:     #d4a853;
+      --primary-fg:  #1a1000;
+      --primary-dim: rgba(212,168,83,0.12);
+      --muted:       rgba(255,255,255,0.40);
+      --fg:          rgba(255,255,255,0.92);
+      --fg-light:    rgba(255,255,255,0.65);
+      --destructive: #e05c5c;
+      --radius-sm:   6px;
+      --font:        'Inter', 'Segoe UI', system-ui, sans-serif;
+    }
+
+    /* ── Base ── */
+    html, body {
+      background: var(--bg) !important;
+      color: var(--fg) !important;
+      font-family: var(--font) !important;
+      margin: 0; padding: 0;
+    }
+
+    /* ── Header / Banner ── */
+    #headerpic {
+      background: var(--surface) !important;
+      border-bottom: 1px solid var(--border) !important;
+      position: relative;
+    }
+    #headercontent h1 {
+      color: var(--primary) !important;
+      font-family: var(--font) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em;
+    }
+    #headercontent h1 sup {
+      color: var(--muted) !important;
+      font-size: 0.55em;
+    }
+    #headercontent h2 {
+      font-family: var(--font) !important;
+      font-size: 0.82em !important;
+      font-weight: 500 !important;
+      color: var(--fg) !important;
+      letter-spacing: 0.04em;
+      line-height: 1.7;
+    }
+    /* "Redesigned by" line */
+    #headercontent h2 .redesigned-by {
+      display: block;
+      font-size: 1em;
+      font-weight: 600;
+      color: var(--primary) !important;
+      letter-spacing: 0.06em;
+    }
+    /* original "designed by" — smaller, muted */
+    #headercontent h2 .original-by {
+      display: block;
+      font-size: 0.78em;
+      font-weight: 400;
+      color: var(--muted) !important;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Navigation ── */
+    #menu {
+      background: var(--surface) !important;
+      border-bottom: 1px solid var(--border) !important;
+    }
+    #menu ul li a {
+      color: var(--fg-light) !important;
+      font-family: var(--font) !important;
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.5em 1em;
+      border-radius: var(--radius-sm);
+      transition: background 0.18s, color 0.18s;
+    }
+    #menu ul li a:hover {
+      background: var(--primary-dim) !important;
+      color: var(--primary) !important;
+      text-decoration: none !important;
+    }
+    #menu ul li a.active {
+      background: var(--primary-dim) !important;
+      color: var(--primary) !important;
+    }
+    /* LinkButton Logout inside nav */
+    #menu ul li a[id$="lin1"],
+    #menu ul li span[id$="lin1"] { color: var(--destructive) !important; }
+
+    /* ── Footer ── */
+    #footer {
+      background: var(--surface) !important;
+      border-top: 1px solid var(--border) !important;
+      color: var(--muted) !important;
+      font-family: var(--font) !important;
+      font-size: 11px !important;
+    }
+    #footer .left, #footer .right {
+      color: var(--muted) !important;
+      font-family: var(--font) !important;
+    }
+
+    /* ── Content area background ── */
+    #outer        { background: var(--bg) !important; border-color: var(--border) !important; }
+    #content      { background: transparent !important; }
+    #normalcontent{ background: transparent !important; }
+    .contentarea  { background: transparent !important; }
+    #menubottom   { background: var(--bg) !important; border: none !important; }
+    #upbg         { background: var(--bg) !important; }
+
+    /* ── Global form elements ── */
+    input[type="text"],
+    input[type="password"],
+    textarea,
+    select {
+      background: var(--surface-2) !important;
+      color: var(--fg) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--radius-sm) !important;
+      font-family: var(--font) !important;
+      font-size: 13px !important;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--primary) !important;
+      outline: none !important;
+      box-shadow: 0 0 0 2px rgba(212,168,83,0.18) !important;
+    }
+    input[type="text"]::placeholder,
+    textarea::placeholder { color: var(--muted) !important; }
+    select option { background: var(--surface-2) !important; color: var(--fg) !important; }
+
+    /* ── AjaxToolkit ComboBox fix ── */
+    .ajax__combobox_textboxcontainer input {
+      background: var(--surface-2) !important;
+      color: var(--fg) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--radius-sm) 0 0 var(--radius-sm) !important;
+      font-family: var(--font) !important;
+      font-size: 13px !important;
+    }
+    .ajax__combobox_textboxcontainer input:focus {
+      border-color: var(--primary) !important;
+      outline: none !important;
+    }
+    .ajax__combobox_buttoncontainer button {
+      background: var(--surface) !important;
+      border: 1px solid var(--border) !important;
+      border-left: none !important;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0 !important;
+      color: var(--muted) !important;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .ajax__combobox_buttoncontainer button:hover {
+      background: var(--primary-dim) !important;
+    }
+    .ajax__combobox_itemlist {
+      background: var(--surface-2) !important;
+      border: 1px solid var(--border) !important;
+      color: var(--fg) !important;
+      font-family: var(--font) !important;
+      font-size: 13px !important;
+    }
+    .ajax__combobox_itemlist li:hover,
+    .ajax__combobox_itemlist .ajax__combobox_highlightedItem {
+      background: var(--primary-dim) !important;
+      color: var(--primary) !important;
+    }
+
+    /* ── Buttons ── */
+    input[type="submit"],
+    input[type="button"],
+    button:not(.ajax__combobox_buttoncontainer button) {
+      background: var(--surface-2) !important;
+      color: var(--fg) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--radius-sm) !important;
+      font-family: var(--font) !important;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      padding: 6px 16px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    input[type="submit"]:hover,
+    input[type="button"]:hover {
+      background: var(--primary-dim) !important;
+      border-color: var(--primary) !important;
+      color: var(--primary) !important;
+    }
+
+    /* ── Tables (GridView / legacy tables) ── */
+    table[bgcolor="Silver"],
+    table[bgcolor="silver"] {
+      background: var(--surface) !important;
+      border-color: var(--border) !important;
+    }
+    td, th {
+      color: var(--fg) !important;
+      font-family: var(--font) !important;
+      border-color: var(--border) !important;
+    }
+    /* GridView rows */
+    .GridView tr, .GridView td, .GridView th { font-family: var(--font) !important; }
+
+    /* ── Labels / text ── */
+    span, label, p, div {
+      font-family: var(--font) !important;
+    }
+    a { color: var(--primary) !important; }
+    a:hover { color: var(--fg) !important; }
+
+    /* ── Checkbox accent ── */
+    input[type="checkbox"] { accent-color: var(--primary); }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div>
+            <div id="upbg">
+            </div>
+            <div id="outer">
+                <div id="headerpic">
+                    <div id="headercontent">
+                        <h1>
+                            MY - GYM <sup>IT</sup></h1>
+                        <h2>
+                            <span class="redesigned-by">Redesigned by Abdelrhman Elbaz</span>
+                            <span class="original-by">originally designed by Eng Haitham</span>
+                        </h2>
+                    </div>
+                </div>
+                <div id="menu">
+                    <ul>
+                        <li><a id="aAttend" runat="server" href="Attend.aspx">Attend</a></li>
+                        <li><a id="aPriceList" runat="server" href="PriceList.aspx">Price List</a></li>
+                        <li><a id="aTraineeView" runat="server" href="TraineeView.aspx">Trainee</a></li>
+                        <li><a id="aAttendance" runat="server" href="Attendance.aspx">Attendance Report</a></li>
+                        <li><a id="aTraineeAttendance" runat="server" href="TraineeAttendance.aspx">Trainee Attendance </a></li>
+                        <li><a id="aReservations" runat="server" href="Reservations.aspx">Reservation</a></li>
+                        <li><a id="aRenew" runat="server" href="Renew.aspx">Renew </a></li>
+                        <li><a id="aReport" runat="server" href="Report.aspx">Report</a></li>
+                        <li><a id="aUsers" runat="server" href="UsersP.aspx">Users</a></li>
+                        <li>
+                            <asp:LinkButton ID="lin1" runat="server" Text="LogOut" OnClick="LinkButton_Click"></asp:LinkButton></li>
+                    </ul>
+                </div>
+                <div id="menubottom">
+                </div>
+                <div id="content">
+                    <div id="normalcontent">
+                        <div class="contentarea">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+                <div id="footer">
+                    <div class="left">
+                        &copy; 2012 GymApps. All rights reserved.</div>
+                    <div class="right">
+                        Redesigned by Abdelrhman Elbaz &nbsp;<span style="font-size:10px;opacity:0.5;">originally by Eng Haitham</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+<script type="text/javascript">
+(function(){
+    function fixRows(){
+        var rows=document.querySelectorAll('tr');
+        for(var i=0;i<rows.length;i++){
+            var bg=rows[i].style.backgroundColor;
+            if(bg==='white'||bg==='#ffffff'||bg==='rgb(255, 255, 255)'){
+                rows[i].style.backgroundColor='#181824';
+            }
+        }
+    }
+    if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',fixRows);}
+    else{fixRows();}
+    function hook(){
+        if(typeof Sys!=='undefined'&&Sys.WebForms&&Sys.WebForms.PageRequestManager){
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function(){setTimeout(fixRows,100);});
+        } else {setTimeout(hook,500);}
+    }
+    hook();
+}());
+</script>
+</body>
+</html>
