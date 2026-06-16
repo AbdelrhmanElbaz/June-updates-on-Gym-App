@@ -1,7 +1,345 @@
 <%@ page language="C#" masterpagefile="~/MasterPage.master" autoeventwireup="true" inherits="Default2, App_Web_xfweqsz4" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+<style type="text/css">
+/*
+  TraineeView — Dark Theme Layer
+  RULE: zero structural changes. CSS only, targeting existing elements by tag/attribute/ID.
+  All ASP control IDs, table IDs, runat="server" attrs are untouched.
+*/
+
+/* ── Outer container border ── */
+div[align="center"][style*="border: medium ridge"] {
+    border-color: var(--border) !important;
+    background: transparent !important;
+}
+
+/* ── Inner ridge border div ── */
+div[style*="border-style: ridge"] {
+    border-color: var(--border) !important;
+    background: transparent !important;
+}
+
+/* ══════════════════════════════════════
+   ADD / EDIT FORM  (table id="tb2")
+══════════════════════════════════════ */
+#tb2 {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    width: 92% !important;
+    margin: 0 auto 12px !important;
+}
+
+/* Header row of tb2 */
+#tb2 tr:first-child td {
+    background: var(--surface) !important;
+    border-bottom: 2px solid var(--primary-dim) !important;
+    color: var(--primary) !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: .1em !important;
+    text-transform: uppercase !important;
+    padding: 14px 0 !important;
+}
+
+#tb2 td {
+    background: var(--surface) !important;
+    color: var(--fg) !important;
+    border-color: var(--border) !important;
+    padding: 7px 10px !important;
+    font-size: 13px !important;
+}
+
+/* Labels inside tb2 */
+#tb2 span[id] {
+    color: var(--muted) !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: .06em !important;
+}
+
+/* Inputs inside tb2 */
+#tb2 input[type="text"],
+#tb2 textarea {
+    background: var(--surface-2) !important;
+    color: var(--fg) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 6px 10px !important;
+    font-family: var(--font) !important;
+    font-size: 13px !important;
+    transition: border-color .18s, box-shadow .18s !important;
+}
+#tb2 input[type="text"]:focus,
+#tb2 textarea:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px var(--primary-dim) !important;
+    outline: none !important;
+}
+
+/* TextBoxNotes (multiline) */
+#tb2 textarea {
+    color: var(--fg) !important;
+    resize: vertical !important;
+    min-height: 64px !important;
+}
+
+/* DropDownLists inside tb2 */
+#tb2 select {
+    background: var(--surface-2) !important;
+    color: var(--fg) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 5px 8px !important;
+    font-family: var(--font) !important;
+    font-size: 13px !important;
+}
+#tb2 select:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px var(--primary-dim) !important;
+    outline: none !important;
+}
+
+/* FileUpload inside tb2 */
+#tb2 input[type="file"] {
+    color: var(--fg-light) !important;
+    font-size: 12px !important;
+}
+
+/* Image preview inside tb2 */
+#tb2 img { border-color: var(--border) !important; }
+
+/* LabelnotesData (existing notes display) */
+#ctl00_ContentPlaceHolder1_LabelnotesData {
+    background: rgba(212,168,83,.06) !important;
+    border: 1px solid rgba(212,168,83,.18) !important;
+    border-radius: var(--radius-sm) !important;
+    display: block !important;
+    padding: 8px 12px !important;
+    color: var(--fg-light) !important;
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+}
+
+/* Error label */
+#ctl00_ContentPlaceHolder1_LabelEr {
+    color: var(--destructive) !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+
+/* Save button inside tb2 */
+#tb2 input[type="submit"],
+#tb2 input[type="button"] {
+    background: var(--primary) !important;
+    color: var(--primary-fg) !important;
+    border: none !important;
+    padding: 8px 28px !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    letter-spacing: .06em !important;
+    cursor: pointer !important;
+    transition: opacity .18s !important;
+}
+#tb2 input[type="submit"]:hover,
+#tb2 input[type="button"]:hover {
+    opacity: .85 !important;
+    background: var(--primary) !important;
+    color: var(--primary-fg) !important;
+}
+
+/* ══════════════════════════════════════
+   SEARCH TABLE  (second table — no ID)
+   target via bgcolor attr
+══════════════════════════════════════ */
+table[bgcolor="Silver"],
+table[bgcolor="silver"] {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    width: 92% !important;
+    margin: 0 auto 16px !important;
+}
+
+table[bgcolor="Silver"] td,
+table[bgcolor="silver"] td {
+    background: var(--surface) !important;
+    color: var(--fg) !important;
+    border-color: var(--border) !important;
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+}
+
+/* Section label rows in search table */
+table[bgcolor="Silver"] td.style1,
+table[bgcolor="silver"] td.style1 {
+    color: var(--primary) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: .08em !important;
+    text-transform: uppercase !important;
+    border-bottom: 1px solid var(--primary-dim) !important;
+    padding: 12px 10px !important;
+}
+
+/* Bold labels (ID, Female, Name, Mobile) */
+table[bgcolor="Silver"] td.style4 span,
+table[bgcolor="silver"] td.style4 span {
+    color: var(--muted) !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: .05em !important;
+}
+
+/* Inputs inside search table */
+table[bgcolor="Silver"] input[type="text"],
+table[bgcolor="silver"] input[type="text"] {
+    background: var(--surface-2) !important;
+    color: var(--fg) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 6px 10px !important;
+    font-family: var(--font) !important;
+    font-size: 13px !important;
+}
+table[bgcolor="Silver"] input[type="text"]:focus,
+table[bgcolor="silver"] input[type="text"]:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px var(--primary-dim) !important;
+    outline: none !important;
+}
+
+/* Search & Add-New buttons */
+table[bgcolor="Silver"] input[type="submit"],
+table[bgcolor="Silver"] input[type="button"],
+table[bgcolor="silver"] input[type="submit"],
+table[bgcolor="silver"] input[type="button"] {
+    background: var(--surface-2) !important;
+    color: var(--fg) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 7px 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: .05em !important;
+    cursor: pointer !important;
+    transition: background .15s, border-color .15s !important;
+}
+table[bgcolor="Silver"] input[type="submit"]:hover,
+table[bgcolor="Silver"] input[type="button"]:hover,
+table[bgcolor="silver"] input[type="submit"]:hover,
+table[bgcolor="silver"] input[type="button"]:hover {
+    background: var(--primary-dim) !important;
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+}
+
+/* Separator line */
+table[bgcolor="Silver"] td.style8,
+table[bgcolor="silver"] td.style8 {
+    color: var(--border) !important;
+    font-size: 12px !important;
+}
+
+/* ══════════════════════════════════════
+   GRIDVIEW  (#GridView1)
+══════════════════════════════════════ */
+
+/* Header row */
+#ctl00_ContentPlaceHolder1_GridView1 th,
+table[id$="GridView1"] th {
+    background: var(--surface) !important;
+    color: var(--primary) !important;
+    border-bottom: 2px solid var(--primary-dim) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: .07em !important;
+    text-transform: uppercase !important;
+    padding: 11px 12px !important;
+    white-space: nowrap !important;
+    border-color: var(--border) !important;
+}
+
+/* Data rows */
+#ctl00_ContentPlaceHolder1_GridView1 td,
+table[id$="GridView1"] td {
+    background: var(--surface-2) !important;
+    color: var(--fg) !important;
+    border-color: var(--border) !important;
+    padding: 9px 12px !important;
+    font-size: 13px !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+/* Hover row */
+#ctl00_ContentPlaceHolder1_GridView1 tr:hover td,
+table[id$="GridView1"] tr:hover td {
+    background: var(--primary-dim) !important;
+}
+
+/* Pager row */
+#ctl00_ContentPlaceHolder1_GridView1 tr.gridPager td,
+table[id$="GridView1"] td[colspan] {
+    background: var(--surface) !important;
+    text-align: left !important;
+    padding: 8px 12px !important;
+}
+
+#ctl00_ContentPlaceHolder1_GridView1 td[colspan] a,
+#ctl00_ContentPlaceHolder1_GridView1 td[colspan] span,
+table[id$="GridView1"] td[colspan] a,
+table[id$="GridView1"] td[colspan] span {
+    display: inline-block !important;
+    padding: 4px 10px !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    margin: 0 2px !important;
+    font-size: 12px !important;
+    color: var(--primary) !important;
+    text-decoration: none !important;
+    background: var(--surface-2) !important;
+    transition: background .15s !important;
+}
+#ctl00_ContentPlaceHolder1_GridView1 td[colspan] a:hover,
+table[id$="GridView1"] td[colspan] a:hover {
+    background: var(--primary-dim) !important;
+}
+
+/* Edit / Delete link buttons in grid */
+#ctl00_ContentPlaceHolder1_GridView1 a[id*="LinkButton"],
+table[id$="GridView1"] a[id*="LinkButton"] {
+    opacity: .75;
+    transition: opacity .15s;
+}
+#ctl00_ContentPlaceHolder1_GridView1 a[id*="LinkButton"]:hover,
+table[id$="GridView1"] a[id*="LinkButton"]:hover {
+    opacity: 1;
+}
+
+/* ══════════════════════════════════════
+   MISC
+══════════════════════════════════════ */
+
+/* Required field validator asterisk */
+#ctl00_ContentPlaceHolder1_RequiredFieldValidator1 {
+    color: var(--destructive) !important;
+    font-weight: 700 !important;
+}
+
+/* Checkbox accent */
+input[type="checkbox"] { accent-color: var(--primary) !important; }
+
+/* style1 div spacer at bottom */
+div.style1 { background: transparent !important; }
+</style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
      
                 <div align="center" style="border: medium ridge #333333;overflow:scroll">
